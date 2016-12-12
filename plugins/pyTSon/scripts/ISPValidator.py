@@ -114,7 +114,6 @@ class ISPValidator(ts3plugin):
                 if self.cfg.getboolean("general", "debug"): ts3.printMessageToCurrentTab("%s's ISP: %s"%(self.clientURL(self.schid, self.requested),isp))
                 _match = False
                 for _isp in self.isps:
-                    ts3.printMessageToCurrentTab(_isp)
                     if isp == _isp: _match = True
                 if self.cfg.getboolean('general', 'whitelist') and not _match:
                     if self.cfg.getboolean('main', 'kickonly'):
@@ -154,7 +153,6 @@ class ISPValidator(ts3plugin):
                 if self.cfg.getboolean("general", "debug"): ts3.printMessageToCurrentTab("%s's ISP: %s"%(self.clientURL(self.schid, self.requested),isp))
                 _match = False
                 for _isp in self.isps:
-                    ts3.printMessageToCurrentTab(_isp)
                     if isp == _isp: _match = True
                 if self.cfg.getboolean('general', 'whitelist') and not _match:
                     if self.cfg.getboolean('main', 'kickonly'):
@@ -244,9 +242,7 @@ class SettingsDialog(QDialog):
             self.this.cfg.set('failover', 'bantime', str(self.bantime_2.value))
             self.this.cfg.set('api', 'main', self.api_main.text)
             self.this.cfg.set('api', 'fallback', self.api_fallback.text)
-            ts3.printMessageToCurrentTab(str(self.chk_failover.isChecked()))
             self.this.cfg.set('failover', 'enabled', str(self.chk_failover.isChecked()))
-            ts3.printMessageToCurrentTab(str(self.this.cfg.get('failover', 'enabled')))
             for index in range(self.lst_events.count):
                 item = self.lst_events.item(index)
                 for event in self.this.cfg['events']:
